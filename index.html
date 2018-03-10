@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>时钟</title>
     <style>
-        *{margin: 0;padding: 0;}
-        body{
-            background-color: #ccc;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        #clock{
+
+        body {
+            background-color: #fff;
+        }
+
+        #clock {
             position: relative;
             width: 600px;
             height: 600px;
@@ -18,27 +24,34 @@
             background: url(images/clockface.jpg);
             list-style: none;
         }
-        #sec, #min, #hour{
+
+        #sec,
+        #min,
+        #hour {
             position: absolute;
             width: 30px;
             height: 600px;
             top: 0px;
             left: 285px;
         }
-        #sec{
+
+        #sec {
             background: url(images/sechand.png);
-            z-index:3;
+            z-index: 3;
         }
-        #hour{
+
+        #hour {
             background: url(images/hourhand.png);
             z-index: 1;
         }
-        #min{
+
+        #min {
             background: url(images/minhand.png);
             z-index: 2;
         }
     </style>
 </head>
+
 <body>
     <ul id="clock">
         <li id="sec"></li>
@@ -47,31 +60,32 @@
     </ul>
     <script src="./jquery-3.2.1.min.js"></script>
     <script>
-        $(document).ready(function(){
-            setInterval(function(){
-                var seconds=new Date().getSeconds();
-               
-                var sdegree=seconds*6;
-                
-                var srotate='rotate('+sdegree+'deg)';
-                $("#sec").css({'-moz-transform':srotate,'-webkit-transform':srotate});
-            },1000);
+        $(document).ready(function () {
+            setInterval(function () {
+                var seconds = new Date().getSeconds();
 
-            setInterval(function(){
-                var hours=new Date().getHours();
-                var mins=new Date().getMinutes();
-                var hdegree=hours*30+(mins/2);
-                var hrotate='rotate('+hdegree+'deg)';
-                $("#hour").css({'-moz-transform':hrotate,'-webkit-transform':hrotate});
-            },1000);
-            
-            setInterval(function(){
-                var mins=new Date().getMinutes();
-                var mdegree=mins*6;
-                var mrotate='rotate('+mdegree+'deg)';
-                $("#min").css({'-moz-transform':mrotate,'-webkit-transform':mrotate});
-            },1000)
+                var sdegree = seconds * 6;
+
+                var srotate = 'rotate(' + sdegree + 'deg)';
+                $("#sec").css({ '-moz-transform': srotate, '-webkit-transform': srotate });
+            }, 1000);
+
+            setInterval(function () {
+                var hours = new Date().getHours();
+                var mins = new Date().getMinutes();
+                var hdegree = hours * 30 + (mins / 2);
+                var hrotate = 'rotate(' + hdegree + 'deg)';
+                $("#hour").css({ '-moz-transform': hrotate, '-webkit-transform': hrotate });
+            }, 1000);
+
+            setInterval(function () {
+                var mins = new Date().getMinutes();
+                var mdegree = mins * 6;
+                var mrotate = 'rotate(' + mdegree + 'deg)';
+                $("#min").css({ '-moz-transform': mrotate, '-webkit-transform': mrotate });
+            }, 1000)
         })
     </script>
 </body>
+
 </html>
